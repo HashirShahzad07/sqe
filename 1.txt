@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+
+public class Task2 {
+
+	static void validate(String word) throws invalidCharacter {
+		if (word.matches("[a-zA-Z]+") == false) {
+			throw new invalidCharacter("some error occured");
+		} else {
+			System.out.println("The input string is correct");
+		}
+
+	}
+
+	public static void main(String[] args) {
+// TODO Auto-generated method stub
+		try {
+			Scanner myObj = new Scanner(System.in);
+			System.out.println("Enter username:");
+			String str = myObj.nextLine();
+			validate(str);
+		} catch (invalidCharacter ic) {
+			System.out.println("exception caught ");
+			System.out.println(ic);
+		}
+
+	}
+
+}
+public class invalidCharacter extends Exception{
+	public invalidCharacter(String name) { 
+		super(name);
+	}
+}
